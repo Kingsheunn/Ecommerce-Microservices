@@ -1,0 +1,41 @@
+# Ignore node modules and local modules
+node_modules
+**/node_modules
+
+# Git metadata
+.git
+.git/**
+
+# Local env files and secrets (do not commit)
+.env
+.env.*
+
+# Build artifacts and caches
+dist
+.build
+.next
+.out
+.turbo
+.pnpm-store
+pnpm-store
+pnpm-state.yaml
+
+# Local backups, screenshots, logs
+client-backup
+*.log
+*.png
+*.jpg
+*.zip
+
+# IDE/editor folders
+.vscode
+.idea
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Other local files
+coverage
+npm-debug.log
+yarn-error.log

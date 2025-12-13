@@ -1,0 +1,28 @@
+{
+  "name": "@repo/qstash",
+  "version": "1.0.0",
+  "description": "QStash message queue utilities for microservices",
+  "main": "dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "check-types": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@upstash/qstash": "^0.3.6"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20"
+  },
+  "types": "dist/index.d.ts"
+}

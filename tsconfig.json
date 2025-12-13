@@ -1,0 +1,47 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/admin"
+    },
+    {
+      "path": "./apps/client"
+    },
+    {
+      "path": "./apps/auth-service"
+    },
+    {
+      "path": "./apps/order-service"
+    },
+    {
+      "path": "./apps/product-service"
+    },
+    {
+      "path": "./apps/payment-service"
+    },
+    {
+      "path": "./packages/types"
+    },
+    {
+      "path": "./packages/product-db"
+    },
+    {
+      "path": "./packages/order-db"
+    },
+    {
+      "path": "./packages/kafka"
+    },
+    {
+      "path": "./packages/security-logger"
+    },
+    {
+      "path": "./packages/qstash"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/*": ["packages/*/src"]
+    }
+  }
+}

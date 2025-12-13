@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/controllers/category.controller.ts","./src/controllers/product.controller.ts","./src/middleware/authMiddleware.ts","./src/routes/category.route.ts","./src/routes/product.route.ts","./src/types/repo-shims.d.ts","./src/utils/kafka.ts"],"errors":true,"version":"5.9.3"}

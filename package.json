@@ -1,0 +1,39 @@
+{
+  "name": "ecom",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "prettier": "^3.7.3",
+    "turbo": "^2.6.1",
+    "typescript": "5.9.3"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "pnpm": {
+    "overrides": {
+      "next@>=15.3.0 <15.3.3": ">=15.3.3",
+      "next@>=15.0.0 <=15.4.4": ">=15.4.5",
+      "next@>=15.0.0-canary.0 <15.4.7": ">=15.4.7",
+      "hono@<4.9.7": ">=4.9.7",
+      "hono@>=1.1.0 <4.10.2": ">=4.10.2",
+      "js-yaml@>=4.0.0 <4.1.1": ">=4.1.1",
+      "nodemailer@<7.0.7": ">=7.0.7",
+      "glob@>=10.2.0 <10.5.0": ">=10.5.0",
+      "body-parser@>=2.2.0 <2.2.1": ">=2.2.1",
+      "hono@<4.10.3": ">=4.10.3",
+      "nodemailer@<=7.0.10": ">=7.0.11"
+    }
+  },
+  "dependencies": {
+    "@sentry/node": "^10.29.0",
+    "@sentry/tracing": "^7.120.4"
+  }
+}
