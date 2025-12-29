@@ -1,4 +1,4 @@
-import { ProductsType, ProductType } from "@repo/types";
+import { ProductsType, ProductType } from "@/types";
 import Categories from "./Categories";
 // import ProductCard from "./ProductCard"; // Not used with API
 import Link from "next/link";

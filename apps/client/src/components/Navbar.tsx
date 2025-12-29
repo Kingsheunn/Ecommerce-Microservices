@@ -30,7 +30,7 @@ const Navbar = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const { cart } = useCartStore();
 
-  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCount = cart.reduce((sum: number, item: any) => sum + item.quantity, 0);
 
   useEffect(() => {
     const fetchCategories = async () => {

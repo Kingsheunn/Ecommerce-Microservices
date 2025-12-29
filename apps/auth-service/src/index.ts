@@ -19,8 +19,15 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN?.split(',') || ["http://localhost:3003"],
+    origin: [
+      "http://localhost:3002",
+      "http://localhost:3003",
+      "https://ecom-admin-chi.vercel.app",
+      "https://kingsheunn-luxury.vercel.app"
+    ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(express.json());

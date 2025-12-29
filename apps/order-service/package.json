@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@clerk/fastify": "^2.4.30",
+    "@fastify/cors": "^10.0.1",
     "@sentry/node": "^8.48.0",
     "@repo/kafka": "workspace:*",
     "@repo/order-db": "workspace:*",

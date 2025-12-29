@@ -1,6 +1,6 @@
 "use client";
 
-import { ShippingFormInputs } from "@repo/types";
+import { ShippingFormInputs } from "@/types";
 import { PaymentElement, useCheckout } from "@stripe/react-stripe-js";
 import { ConfirmError } from "@stripe/stripe-js";
 import { useState } from "react";

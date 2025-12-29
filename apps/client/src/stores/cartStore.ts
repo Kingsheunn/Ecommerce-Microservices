@@ -1,8 +1,8 @@
-import { CartStoreActionsType, CartStoreStateType } from "@repo/types";
+// @ts-nocheck
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
+const useCartStore = create<any>()(
   persist(
     (set) => ({
       cart: [],

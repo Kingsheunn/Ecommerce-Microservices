@@ -22,7 +22,13 @@ if (process.env.SENTRY_DSN) {
 
 const app = new Hono();
 app.use("*", clerkMiddleware());
-app.use("*", cors({ origin: ["http://localhost:3002"] }));
+app.use("*", cors({
+  origin: [
+    "http://localhost:3002",
+    "https://ecom-admin-chi.vercel.app",
+    "https://kingsheunn-luxury.vercel.app"
+  ]
+}));
 
 app.get("/health", (c) => {
   return c.json({

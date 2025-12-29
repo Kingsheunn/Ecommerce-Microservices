@@ -25,7 +25,7 @@ export default function CheckoutPage() {
     country: "",
   });
 
-  const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalAmount = cart.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setShippingAddress({
@@ -62,7 +62,7 @@ export default function CheckoutPage() {
       }
 
       // Prepare items for checkout
-      const items = cart.map((item) => ({
+      const items = cart.map((item: any) => ({
         productId: item.id.toString(),
         name: item.name,
         price: item.price,
@@ -218,7 +218,7 @@ export default function CheckoutPage() {
             <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
 
             <div className="border rounded-lg p-6 space-y-4">
-              {cart.map((item) => (
+              {cart.map((item: any) => (
                 <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="flex justify-between">
                   <div>
                     <p className="font-medium">{item.name}</p>

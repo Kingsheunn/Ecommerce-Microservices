@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
-import { OrderType } from "@repo/types";
+import { OrderType } from "@/types";
 import { ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
