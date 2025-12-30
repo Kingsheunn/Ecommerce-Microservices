@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { OrderType, ProductsType } from "@repo/types";
+import { OrderType, ProductsType } from "@/types";
 import { auth } from "@clerk/nextjs/server";
 
 // const popularProducts = [
@@ -184,7 +184,7 @@ const CardList = async ({ title }: { title: string }) => {
                   </CardTitle>
                   <Badge variant="secondary">{item.status}</Badge>
                 </CardContent>
-                <CardFooter className="p-0">${item.amount / 100}</CardFooter>
+                <CardFooter className="p-0">${(item.amount || 0) / 100}</CardFooter>
               </Card>
             ))}
       </div>

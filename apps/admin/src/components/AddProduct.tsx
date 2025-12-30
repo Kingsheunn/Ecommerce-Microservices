@@ -30,7 +30,7 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { Checkbox } from "./ui/checkbox";
 import { ScrollArea } from "./ui/scroll-area";
-import { CategoryType, colors, ProductFormSchema, sizes } from "@repo/types";
+import { CategoryType, colors, ProductFormSchema, sizes } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { useAuth } from "@clerk/nextjs";

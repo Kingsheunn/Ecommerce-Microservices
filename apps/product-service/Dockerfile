@@ -1,5 +1,5 @@
 # ============================================================================
-# STAGE 1: Builder — build the TypeScript app with full workspace available
+# STAGE 1: Builder — build the TypeScript app
 # ============================================================================
 FROM node:18-alpine AS builder
 
@@ -12,13 +12,9 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # and pnpm-lock.yaml for TypeScript resolution during the build.
 COPY . .
 
-# Install dependencies for the monorepo (respects pnpm-lock.yaml)
-# Use --no-frozen-lockfile inside build to avoid lockfile config mismatch in CI
-RUN pnpm install --no-frozen-lockfile
-
-# Build the product-service
+# Build the product-service (workspace packages are already built)
 WORKDIR /app/apps/product-service
-RUN npm run build
+RUN pnpm install --no-frozen-lockfile && npm run build
 
 # ============================================================================
 # STAGE 2: Runtime — slim image with only compiled code and production deps
@@ -36,7 +32,7 @@ COPY --from=builder /app/pnpm-lock.yaml ./
 COPY --from=builder /app/pnpm-workspace.yaml ./
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/packages ./packages
-COPY --from=builder /app/apps/product-service/package.json ./apps/product-service/
+COPY --from=builder /app/apps/product-service/package.production.json ./apps/product-service/package.json
 COPY --from=builder /app/apps/product-service/dist ./apps/product-service/dist
 
 # Install production dependencies only for the whole workspace

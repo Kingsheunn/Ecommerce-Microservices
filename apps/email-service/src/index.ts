@@ -1,8 +1,7 @@
 import * as Sentry from "@sentry/node";
 import express, { Request, Response } from "express";
 import sendMail from "./utils/mailer.js";
-import { createConsumer, createKafkaClient } from "@repo/kafka";
-import { verifyQStashSignature } from "@repo/kafka";
+import { createConsumer, createKafkaClient, verifyQStashSignature } from "@repo/kafka";
 
 // Initialize Sentry
 if (process.env.SENTRY_DSN) {
@@ -62,13 +61,13 @@ const start = async () => {
 
       const port = process.env.PORT ? parseInt(process.env.PORT) : 8004;
       app.get("/health", (_req: Request, res: Response) => res.json({ status: "ok" }));
-      app.listen(port, () => console.log(`Email service (QStash) listening on ${port}`));
+      app.listen(port, "0.0.0.0", () => console.log(`Email service (QStash) listening on ${port}`));
     } else {
       await consumer.connect();
       await consumer.subscribe([
         {
           topicName: "user.created",
-          topicHandler: async (message) => {
+          topicHandler: async (message: any) => {
             const { email, username } = message.value;
 
             if (email) {
@@ -82,7 +81,7 @@ const start = async () => {
         },
         {
           topicName: "order.created",
-          topicHandler: async (message) => {
+          topicHandler: async (message: any) => {
             const { email, amount, status } = message.value;
 
             if (email) {

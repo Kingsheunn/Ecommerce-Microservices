@@ -72,17 +72,17 @@ const start = async () => {
       });
 
       await connectOrderDB();
-      await fastify.listen({ port });
+      await fastify.listen({ port, host: "0.0.0.0" });
       console.log(`Order service (QStash) is running on port ${port}`);
     } else {
-      Promise.all([
-        await connectOrderDB(),
-        await producer.connect(),
-        await consumer.connect(),
+      await Promise.all([
+        connectOrderDB(),
+        producer.connect(),
+        consumer.connect(),
       ]);
       await runKafkaSubscriptions();
       const port = process.env.PORT ? parseInt(process.env.PORT) : 8001;
-      await fastify.listen({ port });
+      await fastify.listen({ port, host: "0.0.0.0" });
       console.log(`Order service is running on port ${port}`);
     }
   } catch (err) {

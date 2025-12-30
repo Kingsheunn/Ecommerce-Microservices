@@ -20,7 +20,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { CategoryFormSchema } from "@repo/types";
+import { CategoryFormSchema } from "@/types";
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "@clerk/nextjs";
 import { toast } from "react-toastify";

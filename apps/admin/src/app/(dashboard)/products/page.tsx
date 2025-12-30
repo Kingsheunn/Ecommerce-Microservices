@@ -1,4 +1,4 @@
-import { ProductsType } from "@repo/types";
+import { ProductsType } from "@/types";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
 

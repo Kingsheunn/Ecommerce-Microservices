@@ -33,6 +33,7 @@
     }
   },
   "dependencies": {
+    "@fastify/cors": "^10.0.1",
     "@sentry/node": "^10.29.0",
     "@sentry/tracing": "^7.120.4"
   }
