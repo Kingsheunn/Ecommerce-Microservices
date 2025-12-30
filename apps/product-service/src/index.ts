@@ -144,9 +144,10 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 
 const start = async () => {
   try {
-    Promise.all([await producer.connect(), await consumer.connect()]);
-    app.listen(8000, () => {
-      console.log("Product service is running on 8000");
+    await Promise.all([producer.connect(), consumer.connect()]);
+    const port = Number(process.env.PORT) || 8080;
+    app.listen(port, "0.0.0.0", () => {
+      console.log(`Product service is running on ${port}`);
     });
   } catch (error) {
     console.log(error);

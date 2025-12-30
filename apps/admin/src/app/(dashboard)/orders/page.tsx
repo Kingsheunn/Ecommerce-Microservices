@@ -1,7 +1,9 @@
 import { auth } from "@clerk/nextjs/server";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
-import { OrderType } from "@repo/types";
+import { OrderType } from "@/types";
+
+export const dynamic = 'force-dynamic';
 
 const getData = async (): Promise<OrderType[]> => {
   try {

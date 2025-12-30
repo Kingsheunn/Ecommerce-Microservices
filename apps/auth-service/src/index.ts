@@ -57,8 +57,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 const start = async () => {
   try {
     await producer.connect();
-    const port = process.env.PORT || 8003;
-    app.listen(port, () => {
+    const port = Number(process.env.PORT) || 8003;
+    app.listen(port, "0.0.0.0", () => {
       console.log(`Auth service is running on ${port}`);
     });
   } catch (error) {

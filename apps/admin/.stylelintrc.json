@@ -9,7 +9,9 @@
           "variants",
           "responsive",
           "screen",
-          "layer"
+          "layer",
+          "custom-variant",
+          "theme"
         ]
       }
     ],

@@ -16,7 +16,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Trash2, Eye } from "lucide-react";
-import { ProductWithCategory } from "@repo/types";
+import { ProductWithCategory } from "@/types";
 
 interface ProductActionsProps {
   product: ProductWithCategory;
@@ -53,7 +53,7 @@ export default function ProductActions({ product }: ProductActionsProps) {
   });
 
   const handleDelete = () => {
-    deleteMutation.mutate(product.id);
+    deleteMutation.mutate(Number(product.id));
   };
 
   return (

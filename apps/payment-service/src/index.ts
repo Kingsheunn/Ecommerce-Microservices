@@ -90,17 +90,18 @@ const start = async () => {
 
       const port = process.env.PORT ? parseInt(process.env.PORT) : 8002;
       expressApp.get("/health", (_req, res) => res.json({ status: "ok" }));
-      expressApp.listen(port, () => console.log(`Payment service (QStash) listening on ${port}`));
+      expressApp.listen(port, '0.0.0.0', () => console.log(`Payment service (QStash) listening on ${port}`));
     } else {
-      Promise.all([await producer.connect(), await consumer.connect()]);
+      await Promise.all([producer.connect(), consumer.connect()]);
       await runKafkaSubscriptions();
+      const port = process.env.PORT ? parseInt(process.env.PORT) : 8002;
       serve(
         {
           fetch: app.fetch,
-          port: 8002,
+          port,
         },
         (info) => {
-          console.log(`Payment service is running on port 8002`);
+          console.log(`Payment service is running on port ${port}`);
         }
       );
     }

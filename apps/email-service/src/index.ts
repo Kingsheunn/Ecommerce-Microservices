@@ -62,7 +62,7 @@ const start = async () => {
 
       const port = process.env.PORT ? parseInt(process.env.PORT) : 8004;
       app.get("/health", (_req: Request, res: Response) => res.json({ status: "ok" }));
-      app.listen(port, () => console.log(`Email service (QStash) listening on ${port}`));
+      app.listen(port, "0.0.0.0", () => console.log(`Email service (QStash) listening on ${port}`));
     } else {
       await consumer.connect();
       await consumer.subscribe([
